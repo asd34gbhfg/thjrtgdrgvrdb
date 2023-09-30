@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imagen Aleatoria Full Pantalla</title>
+    <style>
+        /* Estilo para hacer que la imagen cubra toda la pantalla */
+        body, html {
+            height: 100%;
+            margin: 0;
+        }
+        #background-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <!-- Elemento de imagen que se actualizará con una imagen aleatoria -->
+    <img id="background-image" src="" alt="Imagen Aleatoria">
+    
+    <script>
+        // Array de URLs de imágenes aleatorias
+        const imagenesAleatorias = [
+            'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiQVtYd_iiG1OcZ66CVTEKjlrm0640-WUCsZuzBBoD7GNCUFDRzGYpNQpe78ET-8Le1x9iBpT7F30mSvqMNH31Z5WuShilJBt2bnoIyg6-XUCitptORMqGER55X6l1zatBM-a8paDQVyzVBASXwfncdjW6xu_nk65ZJIobc6XVVgPnMYlkq6pcAfHuLCMQ/s600/imagen2.jpg',
+            'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiTrGMaatuTJ4MfsRXy4vxGcjLdQeCl-4zRTbiZFaSAkCiDNDbBnV7b0FUMixpE0wS_IpD6yvMie_x8u2TCqTpk_5ZyNn3XiqjE0dnLFgeiWXW2q_YwqHYiumfe4MCpyl7ixl9_-2awVMNxwceemRiJkGxzeiCPUB23Xas6BtxX5_YzBFRrvUoSBW9N_x8/s600/imagen1.jpg',
+            'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjbnSq-U3Fp34OZ5z1DyBXtS-TKIMbNGWfH7qWTyZ0qF57EIiVK1wxQOlEaPwRSQlf32ARE3WpmVJJClqp9V5J3iYTaoo2vNJMAIIVSQJX1mHu8H789j5GCNHMy38kXv1_Tk-i6iIPGb-bhy8hnPpn5675Q2qVsxgWdVWEJHFzReY4XAeEIW0Oonfj817Y/s600/imagen3.jpg',
+            // Agrega más URLs de imágenes aleatorias aquí
+        ];
+
+        // Función para obtener una URL de imagen aleatoria
+        function obtenerImagenAleatoria() {
+            const indiceAleatorio = Math.floor(Math.random() * imagenesAleatorias.length);
+            return imagenesAleatorias[indiceAleatorio];
+        }
+
+        // Cambiar la imagen de fondo al cargar la página
+        function cambiarImagenDeFondo() {
+            const imagenAleatoria = obtenerImagenAleatoria();
+            document.getElementById('background-image').src = imagenAleatoria;
+        }
+
+        // Llamar a la función para cambiar la imagen de fondo cuando se carga la página
+        window.addEventListener('load', cambiarImagenDeFondo);
+    </script>
+</body>
+</html>
+
+<script>
+    // Esta función se ejecutará cuando se haya cargado completamente la página
+    window.addEventListener('load', function () {
+        // Agrega un evento de clic al documento (toda la pantalla)
+        document.addEventListener('click', function () {
+            // Redirecciona a la URL deseada
+            window.location.href = 'https://www.ejemplo.com';
+        });
+    });
+</script>
